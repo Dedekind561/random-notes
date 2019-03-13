@@ -9,7 +9,7 @@ const request = (url, cb = () => { }) => {
         res.on('data', (chunk) => {
             body += chunk;
         });
-        res.on('end', () => cb(null, body));
+        res.on('end', () => cb(null, JSON.parse(body)));
     });
     req.on('error', (e) => {
         console.log(e);
